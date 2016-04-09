@@ -8,10 +8,5 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-env:
-  global:
-    - REPO="user/repo"
-    - CI_HOME=`pwd`/$REPO
-script: build.sh
-
-# script: travis_retry sbt ++$TRAVIS_SCALA_VERSION clean test
+before_install: cd server
+script: travis_retry sbt ++$TRAVIS_SCALA_VERSION clean test
