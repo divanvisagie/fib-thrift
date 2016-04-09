@@ -8,5 +8,4 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-before_install: cd server
 script: travis_retry sbt ++$TRAVIS_SCALA_VERSION clean test
