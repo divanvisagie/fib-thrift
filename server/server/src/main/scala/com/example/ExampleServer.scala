@@ -17,6 +17,6 @@ class ExampleServer extends ThriftServer {
       .filter[AccessLoggingFilter]
       .filter[StatsFilter]
       .filter[ExceptionTranslationFilter]
-      .add[PingController]
+      .add[MathController]
   }
 }
