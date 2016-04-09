@@ -1,6 +1,10 @@
-/RUNNING_PID
-/logs/
-/project/*-shim.sbt
-/project/project/
-/project/target/
-/target/
+.DS_Store
+.idea
+*.iml
+*.ipr
+*.log
+.sbtserver*
+sbt-ui.sbt
+classes/
+target/
+sbt-launch.jar
