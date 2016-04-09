@@ -14,5 +14,5 @@ Running:
 ```sh
 sbt
 > project server
-> project run
+> run
 ```
