@@ -6,6 +6,9 @@ import com.twitter.finatra.thrift.Controller
 import com.twitter.util.Future
 import javax.inject.Singleton
 
+import com.example.math.thriftscala.MathService.Fibonacci.{Args, Result}
+import com.twitter.finagle.Service
+
 import scala.annotation.tailrec
 
 /**
@@ -22,7 +25,8 @@ class MathController extends  Controller with MathService.BaseServiceIface {
     }
     fib(n,1,0)
   }
-  override def fibonacci = handle(Fibonacci) { args: Fibonacci.Args =>
+
+  override def fibonacci: Service[Args, Result] = handle(Fibonacci) { args: Fibonacci.Args =>
     Future.value(fibonacci(args.count))
   }
 }
