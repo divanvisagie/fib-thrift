@@ -51,6 +51,7 @@ lazy val idl = (project in file("idl")).
     )
   )
 
+
 lazy val server = (project in file("server/server")).
   settings(baseSettings).
   settings(
