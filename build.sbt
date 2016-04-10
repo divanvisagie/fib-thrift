@@ -51,6 +51,16 @@ lazy val idl = (project in file("idl")).
     )
   )
 
+lazy val client = (project in file("client"))
+  .settings(baseSettings).
+  settings(
+    name := "thrift-client",
+    moduleName := "thrift-client",
+    libraryDependencies ++= Seq(
+      "com.twitter" % "finagle-thrift_2.11" % "6.34.0"
+    )
+
+  ).dependsOn(idl)
 
 lazy val server = (project in file("server/server")).
   settings(baseSettings).
