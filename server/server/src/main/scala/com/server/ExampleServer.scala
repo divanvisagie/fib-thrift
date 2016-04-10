@@ -1,4 +1,4 @@
-package com.client
+package com.server
 
 import com.twitter.finatra.thrift.ThriftServer
 import com.twitter.finatra.thrift.routing.ThriftRouter

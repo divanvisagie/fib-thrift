@@ -1,4 +1,4 @@
-package com.client
+package com.server
 
 import com.twitter.finagle.{Service, TimeoutException}
 import com.twitter.finatra.thrift.thriftscala.ClientErrorCause.RequestTimeout

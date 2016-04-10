@@ -1,4 +1,4 @@
-package com.client
+package com.server
 
 import com.google.inject.Stage
 import com.twitter.finatra.thrift.EmbeddedThriftServer

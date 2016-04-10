@@ -1,6 +1,6 @@
-package com.client
+package com.server
 
-import com.client.math.thriftscala.MathService
+import com.example.math.thriftscala.MathService
 import com.twitter.finatra.thrift.EmbeddedThriftServer
 import com.twitter.inject.server.FeatureTest
 import com.twitter.util.Future
