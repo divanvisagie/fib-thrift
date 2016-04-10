@@ -57,7 +57,10 @@ lazy val client = (project in file("client"))
     name := "thrift-client",
     moduleName := "thrift-client",
     libraryDependencies ++= Seq(
-      "com.twitter" % "finagle-thrift_2.11" % "6.34.0"
+      "com.twitter" %% "finagle-core" % "6.34.0",
+      "com.twitter" %% "finagle-stats" % "6.34.0",
+      "com.twitter" % "finagle-thrift_2.11" % "6.34.0",
+      "org.apache.thrift" % "libthrift" % "0.9.0" % "compile"
     )
 
   ).dependsOn(idl)

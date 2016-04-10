@@ -1,12 +1,12 @@
-package com.example
+package com.client
 
-import com.example.math.thriftscala.MathService
-import com.example.math.thriftscala.MathService.Fibonacci
+import com.client.math.thriftscala.MathService
+import com.client.math.thriftscala.MathService.Fibonacci
 import com.twitter.finatra.thrift.Controller
 import com.twitter.util.Future
 import javax.inject.Singleton
 
-import com.example.math.thriftscala.MathService.Fibonacci.{Args, Result}
+import com.client.math.thriftscala.MathService.Fibonacci.{Args, Result}
 import com.twitter.finagle.Service
 
 import scala.annotation.tailrec

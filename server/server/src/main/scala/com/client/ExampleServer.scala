@@ -1,4 +1,4 @@
-package com.example
+package com.client
 
 import com.twitter.finatra.thrift.ThriftServer
 import com.twitter.finatra.thrift.routing.ThriftRouter
@@ -8,6 +8,8 @@ object ExampleServerMain extends ExampleServer
 
 class ExampleServer extends ThriftServer {
   override val name = "example-server"
+
+  override val defaultFinatraThriftPort: String = ":9090"
 
   override def configureThrift(router: ThriftRouter) {
     router
