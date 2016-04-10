@@ -1,5 +1,5 @@
-namespace java com.example.math.thriftjava
-#@namespace scala com.example.math.thriftscala
+namespace java com.fib.thrift.math.thriftjava
+#@namespace scala com.fib.thrift.math.thriftscala
 namespace rb Math
 
 include "finatra-thrift/finatra_thrift_exceptions.thrift"

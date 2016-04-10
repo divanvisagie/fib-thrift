@@ -1,6 +1,6 @@
 package com.client
 
-import com.example.math.thriftscala.MathService
+import com.fib.thrift.math.thriftscala.MathService
 import com.twitter.finagle.service.TimeoutFilter
 import com.twitter.finagle.util.DefaultTimer
 import com.twitter.finagle.{IndividualRequestTimeoutException, Thrift}
