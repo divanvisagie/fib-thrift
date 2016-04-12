@@ -1,33 +1,30 @@
 package com.client
 
 import com.fib.thrift.math.thriftscala.MathService
-import com.twitter.finagle.service.TimeoutFilter
-import com.twitter.finagle.util.DefaultTimer
-import com.twitter.finagle.{IndividualRequestTimeoutException, Thrift}
-import com.twitter.util.Duration
+import com.twitter.finagle._
+import com.twitter.finagle.param.{Tracer => PTracer}
+import com.twitter.finagle.stats.NullStatsReceiver
+import com.twitter.finagle.tracing._
+import com.twitter.util.{Await, Future}
+
+import scala.language.reflectiveCalls
+
 
 object ThriftClient {
-  def timeoutFilter[Req, Rep](duration: Duration) = {
-    val exc = new IndividualRequestTimeoutException(duration)
-    val timer = DefaultTimer.twitter
-    new TimeoutFilter[Req, Rep](duration, exc, timer)
-  }
+
+  val svc: MathService[Future] = ThriftMux.client
+      .configured(param.Tracer(NullTracer))
+      .configured(param.Stats(NullStatsReceiver))
+      .newIface[MathService.FutureIface]("localhost:9090")
 
   def main(args: Array[String]) {
-    println("Running Client for 9090")
 
-
-    val client = Thrift.newIface[MathService.FutureIface]("localhost:9090")
-
-
-    val fut = client.fibonacci(30)
-
-    fut.onSuccess { response =>
-      println(s"Received response -> $response")
-    }
-
-    fut.onFailure { err =>
-      println(s"error -> ${err.getMessage}")
-    }
+    Await.ready(svc.fibonacci(30)).onSuccess( f => {
+      println(s"fib 30: ${f.toString}")
+    }).onFailure( err => {
+      println(s"error: ${err.getMessage}")
+    })
   }
 }
+
+
