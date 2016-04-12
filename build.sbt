@@ -16,9 +16,7 @@ lazy val baseSettings = Seq(
   scalaVersion := "2.11.7",
   ivyScala := ivyScala.value.map(_.copy(overrideScalaVersion = true)),
   libraryDependencies ++= Seq(
-    "org.mockito" % "mockito-core" % versions.mockito % "test",
-    "org.scalatest" %% "scalatest" % versions.scalatest % "test",
-    "org.specs2" %% "specs2" % versions.specs2 % "test"
+
   ),
   resolvers ++= Seq(
     Resolver.sonatypeRepo("releases"),
@@ -85,7 +83,10 @@ lazy val server = (project in file("server/server")).
       "com.twitter.inject" %% "inject-app" % versions.finatra % "test" classifier "tests",
       "com.twitter.inject" %% "inject-core" % versions.finatra % "test" classifier "tests",
       "com.twitter.inject" %% "inject-modules" % versions.finatra % "test" classifier "tests",
-      "com.twitter.inject" %% "inject-server" % versions.finatra % "test" classifier "tests"
+      "com.twitter.inject" %% "inject-server" % versions.finatra % "test" classifier "tests",
+      "org.mockito" % "mockito-core" % versions.mockito % "test",
+      "org.scalatest" %% "scalatest" % versions.scalatest % "test",
+      "org.specs2" %% "specs2" % versions.specs2 % "test"
     )
   ).
   dependsOn(
