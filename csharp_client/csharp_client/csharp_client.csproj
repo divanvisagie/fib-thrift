@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{031296A2-DEB9-4E56-B47B-69284B20B956}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>csharp_client</RootNamespace>
+    <AssemblyName>csharp_client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Thrift">
+      <HintPath>..\packages\ApacheThrift.0.9.3\lib\Thrift.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\gen-csharp\ClientError.cs">
+      <Link>gen-csharp\ClientError.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\ClientErrorCause.cs">
+      <Link>gen-csharp\ClientErrorCause.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\MathService.cs">
+      <Link>gen-csharp\MathService.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\NoClientIdError.cs">
+      <Link>gen-csharp\NoClientIdError.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\ServerError.cs">
+      <Link>gen-csharp\ServerError.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\ServerErrorCause.cs">
+      <Link>gen-csharp\ServerErrorCause.cs</Link>
+    </Compile>
+    <Compile Include="..\gen-csharp\UnknownClientIdError.cs">
+      <Link>gen-csharp\UnknownClientIdError.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
