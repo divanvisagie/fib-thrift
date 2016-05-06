@@ -51,6 +51,7 @@ lazy val idl = (project in file("idl")).
 
 lazy val client = (project in file("client"))
   .settings(baseSettings).
+  enablePlugins(JavaServerAppPackaging).
   settings(
     name := "thrift-client",
     moduleName := "thrift-client",
@@ -61,10 +62,12 @@ lazy val client = (project in file("client"))
       "org.apache.thrift" % "libthrift" % "0.9.0" % "compile"
     )
 
+
   ).dependsOn(idl)
 
 lazy val server = (project in file("server/server")).
   settings(baseSettings).
+    enablePlugins(JavaServerAppPackaging).
   settings(
     name := "thrift-server",
     moduleName := "thrift-server",
