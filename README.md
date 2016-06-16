@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/divanvisagie/fib-thrift.svg?branch=master)](https://travis-ci.org/divanvisagie/fib-thrift)
 
 
-Fibonacci over thrift in scala using finatra
+Fibonacci over thrift in scala using Finatra
 Testing
 
 ## Scala Server and Client
@@ -13,16 +13,12 @@ Testing
 Running Server:
 
 ```sh
-sbt
-> project server
-> run
+sbt server/run
 ```
 
 Running Client:
 ```sh
-sbt
-> project client
-> run
+sbt client/run
 ```
 
 
