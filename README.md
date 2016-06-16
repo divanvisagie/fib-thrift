@@ -26,7 +26,11 @@ sbt
 ```
 
 
-## C# Project
+Running Client:
 ```sh
-thrift -r --gen csharp ../idl/src/main/thrift/math.thrift
-```
+sbt
+> project client
+> run
+
+
+
